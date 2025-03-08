@@ -5,7 +5,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { navbarBrand, navs } from "../../config/config";
-import logoImage from "../Images/logoImage.png";
+import logoImage from "../Images/logonews.jpg";
 import "../NavBar/NavBar.css";
 
 function NavBar() {

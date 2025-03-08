@@ -55,6 +55,8 @@
 
 .logo {
   width: 45px !important;
+  border-radius: 10px !important; /* Added to round the corners */
+  margin-right: 15px !important; /* Added to increase space between logo and title */
 }
 
 .search-btn {

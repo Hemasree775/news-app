@@ -24,16 +24,30 @@ function News(props) {
   document.title = `${capitaLize(title)} - News`;
 
   const updatenews = async () => {
+    console.log("API Key:", process.env.REACT_APP_API_KEY); // ✅ Debug API Key
+  
     try {
-      const response = await axios.get(endpointPath(country, category));
+      const apiUrl = endpointPath(country, category);
+      console.log("Fetching news from:", apiUrl); // ✅ Debug API URL
+  
       setLoading(true);
-      const parsedData = response.data;
-      setArticles(parsedData.articles);
+      const response = await axios.get(apiUrl);
+      
+      console.log("API Response:", response.data); // ✅ Debug API Response
+  
+      if (response.data && response.data.articles) {
+        setArticles(response.data.articles);
+      } else {
+        console.error("No articles found in API response:", response.data);
+      }
+  
       setLoading(false);
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching news:", error);
+      setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     updatenews();
